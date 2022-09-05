@@ -30,13 +30,10 @@ export default class Profile extends Component<Props, State> {
     }
     const { currentUser } = this.state;
     
-    return (
-      <div className="container">
-        {(this.state.userReady) ?
-          <div>
-            < Home />
-          </div> : null}
-      </div>
-    );
+    return ( 
+        <>
+        {(this.state.userReady) ? < Home /> : null}
+        </>
+     );
   }
 }

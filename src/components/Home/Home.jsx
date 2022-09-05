@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CssBaseline, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 import { getPlacesData } from '../../api';
 import List from '../../components/List/List';
@@ -47,8 +47,7 @@ const Home = () => {
 
   return (
     <>
-        <CssBaseline />
-        <Grid container spacing={3} style={{ width: '100%' }}>
+        <Grid container spacing={3} >
             <Grid item xs={12} md={4}>
                 <List
                  places={filteredPlaces.length ? filteredPlaces : places}

@@ -49,7 +49,7 @@ label {
   }
   .content-text h2{
     color: #adb5bd;
-    position: fixed;
+    position: absolute;
     margin-left: 125px;
     margin-top: 430px;
     font-size: 20px;
@@ -74,7 +74,10 @@ label {
     margin: 0 auto;
     box-sizing: border-box;
     padding: 0;
-    background: rgb(17, 172, 234);
+    background-color: #b0aeae;
+  }
+  .container{
+    max-width: 1535px;
   }
 
   /* media query */
