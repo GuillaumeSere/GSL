@@ -2,6 +2,9 @@
     background: black;
     font-size: 20px;
 }
+.navbar-brand{
+    font-size: 30px;
+}
 label {
     display: block;
     margin-top: 10px;
@@ -61,7 +64,7 @@ label {
     z-index: 1;
   }
   .card-bg{
-    background: url(../src/images/card.png);
+    background-image: url(../src/images/card.png);
     background-position: center;
     background-size: cover;
     margin-top: -20px;
@@ -78,6 +81,14 @@ label {
   }
   .container{
     max-width: 1535px;
+  }
+  .user-card{
+    background: rgb(185, 215, 240);
+    border: 2px solid black;
+  }
+  .admin-card{
+    background: rgb(186, 232, 205);
+    border: 2px solid black;
   }
 
   /* media query */

@@ -4,13 +4,23 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
 import useStyles from './style.js';
 
-const List = ({ places, type, setType, rating, setRating, childClicked, isLoading }) => {
+interface Type {
+    places?: [];
+    type: string;
+    setType: any;
+    rating: number;
+    setRating: any;
+    childClicked: number;
+    isLoading: any;
+}
+
+const List = ({ places, type, setType, rating, setRating, childClicked, isLoading }:Type) => {
 
     const classes = useStyles();
     const [elRefs, setElRefs] = useState([]);
 
     useEffect(() => {
-        const refs = Array(places?.length).fill().map((_, i) => elRefs[i] || createRef());
+        const refs = Array(places?.length).fill(null).map((_, i) => elRefs[i] || createRef());
         setElRefs(refs);
     }, [places]);
 

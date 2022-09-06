@@ -7,6 +7,7 @@ import Rating from '@material-ui/lab/Rating';
 import mapStyles from './mapStyles.js';
 import useStyles from './style.js';
 
+
 const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }) => {
   const matches = useMediaQuery('(min-width:600px)');
   const classes = useStyles();

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 
 import { getPlacesData } from '../../api';
-import List from '../../components/List/List';
-import Map from '../../components/Map/Map';
+import List from '../List/List';
+import Map from '../Map/Map';
 
 
 const Home = () => {
