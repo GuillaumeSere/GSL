@@ -5,8 +5,13 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './style.js';
 
+interface Type {
+    place: any;
+    selected: any;
+    refProp: any;
+}
 
-const PlaceDetails = ({ place, selected, refProp }) => {
+const PlaceDetails = ({ place, selected, refProp }:Type) => {
   
     const classes = useStyles();
 
@@ -37,17 +42,17 @@ const PlaceDetails = ({ place, selected, refProp }) => {
               {place.ranking}
             </Typography>
           </Box>
-          {place?.awards?.map((award) => (
+          {place?.awards?.map((award: any) => (
             <Box display="flex" justifyContent="space-between" my={1} alignItems="center">
               <img src={award.images.small} />
               <Typography variant="subtitle2" color="textSecondary">{award.display_name}</Typography>
             </Box>
           ))}
-          {place?.cuisine?.map(({ name }) => (
+          {place?.cuisine?.map(({ name } : {name:any}) => (
             <Chip key={name} size="small" label={name} className={classes.chip} />
           ))}
           {place.address && (
-            <Typography gutterBottom variant="body2" color="textPimary" className={classes.subtitle}>
+            <Typography gutterBottom variant="body2" color="textPrimary" className={classes.subtitle}>
               <LocationOnIcon />{place.address}
             </Typography>
           )}

@@ -8,6 +8,7 @@ import mapStyles from './mapStyles.js';
 import useStyles from './style.js';
 
 
+
 const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }) => {
   const matches = useMediaQuery('(min-width:600px)');
   const classes = useStyles();
@@ -16,7 +17,7 @@ const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }
     
     <div className={classes.mapContainer}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={14}
@@ -39,7 +40,7 @@ const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }
               ? <LocationOnOutlinedIcon color="primary" fontSize="large" />
               : (
                 <Paper elevation={3} className={classes.paper}>
-                  <Typography className={classes.typography} variant="subtitle2" gutterBottom> {place.name}</Typography>
+                  <Typography  variant="subtitle2" gutterBottom> {place.name}</Typography>
                   <img
                     className={classes.pointer}
                     src={place?.photo ? place?.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}

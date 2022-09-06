@@ -6,19 +6,19 @@ import List from '../List/List';
 import Map from '../Map/Map';
 
 
-const Home = () => {
+const Home: React.FC = () => {
 
-    const [places, setPlaces] = useState([]);
-    const [filteredPlaces, setFilteredPlaces] = useState([]);
+    const [places, setPlaces] = useState<any>([]);
+    const [filteredPlaces, setFilteredPlaces] = useState<any>([]);
 
-    const [childClicked, setChildClicked] = useState(null);
+    const [childClicked, setChildClicked] = useState<any>(null);
 
-    const [coordinates, setCoordinates] = useState({});
-    const [bounds, setBounds] = useState({});
+    const [coordinates, setCoordinates] = useState<any>({});
+    const [bounds, setBounds] = useState<any>({});
 
-    const [isLoading, setIsLoading] = useState(false);
-    const [type, setType] = useState('restaurants');
-    const [rating, setRating] = useState('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [type, setType] = useState<string>('restaurants');
+    const [rating, setRating] = useState<number | string>('');
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude} }) => {
@@ -27,7 +27,7 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        const filtered = places.filter((place) => Number(place.rating) > rating);
+        const filtered = places.filter((place: any) => Number(place.rating) > rating);
 
         setFilteredPlaces(filtered);
     }, [rating]);
@@ -38,7 +38,7 @@ const Home = () => {
 
         getPlacesData(type, bounds.sw, bounds.ne)
         .then((data) => {
-            setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
+            setPlaces(data.filter((place: any) => place.name && place.num_reviews > 0));
             setFilteredPlaces([])
             setIsLoading(false);
         })

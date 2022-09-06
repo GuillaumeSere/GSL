@@ -8,7 +8,7 @@ interface Type {
     places?: [];
     type: string;
     setType: any;
-    rating: number;
+    rating: number | string;
     setRating: any;
     childClicked: number;
     isLoading: any;
