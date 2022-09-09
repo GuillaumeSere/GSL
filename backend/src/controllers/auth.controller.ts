@@ -1,11 +1,11 @@
-const config = require("../config/auth.config");
-const db = require("../models");
-const User = db.user;
-const Role = db.role;
+import {config }from "../config/auth.config";
+import { Role } from "../models/role.model";
+import { User } from "../models/user.model";
+
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
-exports.signup = (req, res) => {
+const signup = (req: any, res: any) => {
   const user = new User({
     username: req.body.username,
     email: req.body.email,
@@ -21,12 +21,12 @@ exports.signup = (req, res) => {
         {
           name: { $in: req.body.roles }
         },
-        (err, roles) => {
+        (err: any, roles: any) => {
           if (err) {
             res.status(500).send({ message: err });
             return;
           }
-          user.roles = roles.map(role => role._id);
+          user.roles = roles.map((role: any) => role._id);
           user.save(err => {
             if (err) {
               res.status(500).send({ message: err });
@@ -37,7 +37,7 @@ exports.signup = (req, res) => {
         }
       );
     } else {
-      Role.findOne({ name: "user" }, (err, role) => {
+      Role.findOne({ name: "user" }, (err: any, role: any) => {
         if (err) {
           res.status(500).send({ message: err });
           return;
@@ -54,7 +54,7 @@ exports.signup = (req, res) => {
     }
   });
 };
-exports.signin = (req, res) => {
+ const signin = (req: any, res: any) => {
   User.findOne({
     username: req.body.username
   })
@@ -93,3 +93,8 @@ exports.signin = (req, res) => {
       });
     });
 };
+
+export const controller = {
+    signin,
+    signup
+}

@@ -4,12 +4,18 @@ import { Paper, Typography, useMediaQuery } from '@material-ui/core';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import Rating from '@material-ui/lab/Rating';
 
-import mapStyles from './mapStyles.js';
-import useStyles from './style.js';
+import mapStyles from './mapStyles';
+import useStyles from './style';
 
+interface Type {
+    places?: [];
+    setCoordinates: any;
+    setBounds: any;
+    coordinates: any;
+    setChildClicked: any;
+}
 
-
-const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }) => {
+const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }:Type) => {
   const matches = useMediaQuery('(min-width:600px)');
   const classes = useStyles();
 
@@ -17,6 +23,7 @@ const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }
     
     <div className={classes.mapContainer}>
       <GoogleMapReact
+      // @ts-ignore
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}}
         defaultCenter={coordinates}
         center={coordinates}
@@ -29,9 +36,10 @@ const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }
         }}
         onChildClick={(child) => setChildClicked(child)}
       >
-        {places?.length && places?.map((place, i) => (
+        {places?.length && places?.map((place:any, i) => (
           <div
             className={classes.markerContainer}
+               // @ts-ignore
             lat={Number(place.latitude)}
             lng={Number(place.longitude)}
             key={i}

@@ -55,23 +55,23 @@ label {
     justify-content: center;
   }
   .content-text{
-    animation: animate-rotate 10s infinite linear;
+    animation: animate-rotate 5s infinite linear;
   }
   @keyframes animate-rotate {
     0%{
-        transform:rotate(-35deg);
-    }
-    25%{
-        transform:rotate(25deg);
-    }
-    50%{
-        transform:rotate(45deg);
-    }
-    75%{
         transform:rotate(-25deg);
     }
+    25%{
+        transform:rotate(15deg);
+    }
+    50%{
+        transform:rotate(20deg);
+    }
+    75%{
+        transform:rotate(-15deg);
+    }
     100%{
-        transform: rotate(-35deg);
+        transform: rotate(-25deg);
     }
 }
   .content-text h2{

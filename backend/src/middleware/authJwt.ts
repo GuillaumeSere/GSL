@@ -1,15 +1,15 @@
-const jwt = require("jsonwebtoken");
-const config = require("../config/auth.config.js");
-const db = require("../models");
+import jwt from "jsonwebtoken";
+import { config }from "../config/auth.config";
+import { db } from "../models";
 const User = db.user;
 const Role = db.role;
 
-verifyToken = (req, res, next) => {
+const verifyToken = (req: any, res: any, next: any) => {
   let token = req.headers["x-access-token"];
   if (!token) {
     return res.status(403).send({ message: "No token provided!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, config.secret, (err: any, decoded: any) => {
     if (err) {
       return res.status(401).send({ message: "Unauthorized!" });
     }
@@ -18,7 +18,7 @@ verifyToken = (req, res, next) => {
   });
 };
 
-isAdmin = (req, res, next) => {
+const isAdmin = (req: any, res: any, next: any) => {
   User.findById(req.userId).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
@@ -26,9 +26,9 @@ isAdmin = (req, res, next) => {
     }
     Role.find(
       {
-        _id: { $in: user.roles }
+        _id: { $in: user?.roles }
       },
-      (err, roles) => {
+      (err: any, roles: any) => {
         if (err) {
           res.status(500).send({ message: err });
           return;
@@ -46,7 +46,7 @@ isAdmin = (req, res, next) => {
   });
 };
 
-isModerator = (req, res, next) => {
+const isModerator = (req: { userId: any; }, res: { status: (arg0: number) => { (): any; new(): any; send: { (arg0: { message: any; }): void; new(): any; }; }; }, next: () => void) => {
   User.findById(req.userId).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
@@ -54,9 +54,9 @@ isModerator = (req, res, next) => {
     }
     Role.find(
       {
-        _id: { $in: user.roles }
+        _id: { $in: user?.roles }
       },
-      (err, roles) => {
+      (err: any, roles: string | any[]) => {
         if (err) {
           res.status(500).send({ message: err });
           return;
@@ -74,10 +74,9 @@ isModerator = (req, res, next) => {
   });
 };
 
-const authJwt = {
+export const authJwt = {
   verifyToken,
   isAdmin,
   isModerator
 };
 
-module.exports = authJwt;

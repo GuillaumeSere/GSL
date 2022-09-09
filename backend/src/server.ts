@@ -1,57 +1,57 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
+import express from "express";
+import cors from "cors";
+import { db } from "./models";
+
+const router = express();
 
 var corsOptions = {
   origin: "http://localhost:3000"
 };
 
-app.use(cors(corsOptions));
+router.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-app.use(express.json());
+router.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+router.use(express.urlencoded({ extended: true }));
 
-const db = require("./models");
 const Role = db.role;
 
 db.mongoose
   .connect(`mongodb+srv://guillaume:dUFRnbVH6zork4p0@cluster0.zuyedcf.mongodb.net/?retryWrites=true&w=majority`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+  
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
     initial();
   })
-  .catch(err => {
+  .catch((err: any) => {
     console.error("Connection error", err);
     process.exit();
   });
 
 // simple route
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.json({ message: "Welcome to Guillaume application." });
 });
 
 // routes
-require("./routes/auth.route")(app);
-require("./routes/user.route")(app);
+require("./routes/auth.route")(router);
+require("./routes/user.route")(router);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+router.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
 function initial() {
-  Role.estimatedDocumentCount((err, count) => {
+  Role.estimatedDocumentCount((err: any, count: number) => {
     if (!err && count === 0) {
       new Role({
         name: "user"
-      }).save(err => {
+      }).save((err: any) => {
         if (err) {
           console.log("error", err);
         }
@@ -61,7 +61,7 @@ function initial() {
 
       new Role({
         name: "moderator"
-      }).save(err => {
+      }).save((err: any) => {
         if (err) {
           console.log("error", err);
         }
@@ -71,7 +71,7 @@ function initial() {
 
       new Role({
         name: "admin"
-      }).save(err => {
+      }).save((err: any) => {
         if (err) {
           console.log("error", err);
         }

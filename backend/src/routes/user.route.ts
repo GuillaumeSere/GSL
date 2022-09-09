@@ -1,7 +1,8 @@
-const { authJwt } = require("../middleware");
-const controller = require("../controllers/user.controller");
-module.exports = function(app) {
-  app.use(function(req, res, next) {
+import { authJwt } from "../middleware/authJwt";
+import {controller} from "../controllers/user.controller";
+
+module.exports = function(app: any) {
+  app.use(function(req: any, res: any, next: any) {
     res.header(
       "Access-Control-Allow-Headers",
       "x-access-token, Origin, Content-Type, Accept"
