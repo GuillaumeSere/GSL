@@ -46,7 +46,7 @@ const isAdmin = (req: any, res: any, next: any) => {
   });
 };
 
-const isModerator = (req: { userId: any; }, res: { status: (arg0: number) => { (): any; new(): any; send: { (arg0: { message: any; }): void; new(): any; }; }; }, next: () => void) => {
+const isModerator = (req:any, res:any, next:any) => {
   User.findById(req.userId).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
