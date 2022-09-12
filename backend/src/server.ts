@@ -19,7 +19,7 @@ router.use(express.urlencoded({ extended: true }));
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb+srv://guillaume:dUFRnbVH6zork4p0@cluster0.zuyedcf.mongodb.net/?retryWrites=true&w=majority`, {
+  .connect(process.env.MONGO_URL as string, {
   
   })
   .then(() => {
