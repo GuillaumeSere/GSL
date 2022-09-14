@@ -1,8 +1,9 @@
+import { NextFunction, Request, Response } from "express";
 import {db} from "../models";
 const ROLES = db.ROLES;
 const User = db.user;
 
- const checkDuplicateUsernameOrEmail = (req: any, res: any, next: any) => {
+ const checkDuplicateUsernameOrEmail = (req: Request, res: Response, next: NextFunction) => {
   // Username
   User.findOne({
     username: req.body.username
@@ -31,7 +32,7 @@ const User = db.user;
     });
   });
 };
-const checkRolesExisted = (req:any, res:any, next:any) => {
+const checkRolesExisted = (req:Request, res:Response, next:NextFunction) => {
   if (req.body.roles) {
     for (let i = 0; i < req.body.roles.length; i++) {
       if (!ROLES.includes(req.body.roles[i])) {

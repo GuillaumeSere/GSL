@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
-
 import { getPlacesData } from '../../api';
 import List from '../List/List';
 import Map from '../Map/Map';
-
+import Search from '../Search/Search';
 
 const Home: React.FC = () => {
 
     const [places, setPlaces] = useState<any>([]);
-    const [filteredPlaces, setFilteredPlaces] = useState<any>([]);
+    const [filteredPlaces, setFilteredPlaces] = useState<string[]>([]);
 
-    const [childClicked, setChildClicked] = useState<any>(null);
+    const [childClicked, setChildClicked] = useState<string | null>(null);
 
-    const [coordinates, setCoordinates] = useState<any>({});
-    const [bounds, setBounds] = useState<any>({});
+    const [coordinates, setCoordinates] = useState<{lat: number; lng: number}>({lat:0,lng:0});
+    const [bounds, setBounds] = useState<{sw: number; ne: number}>({sw: 0,ne: 0});
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [type, setType] = useState<string>('restaurants');
@@ -27,7 +26,7 @@ const Home: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        const filtered = places.filter((place: any) => Number(place.rating) > rating);
+        const filtered = places.filter((place: string | any) => Number(place.rating) > rating);
 
         setFilteredPlaces(filtered);
     }, [rating]);
@@ -38,7 +37,7 @@ const Home: React.FC = () => {
 
         getPlacesData(type, bounds.sw, bounds.ne)
         .then((data) => {
-            setPlaces(data.filter((place: any) => place.name && place.num_reviews > 0));
+            setPlaces(data.filter((place: string | any) => place.name && place.num_reviews > 0));
             setFilteredPlaces([])
             setIsLoading(false);
         })
@@ -47,6 +46,7 @@ const Home: React.FC = () => {
 
   return (
     <>
+    <Search setCoordinates={setCoordinates} />
         <Grid container spacing={3} >
             <Grid item xs={12} md={4}>
                 <List

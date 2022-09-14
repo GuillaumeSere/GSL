@@ -6,7 +6,7 @@ import Rating from '@material-ui/lab/Rating';
 import useStyles from './style.js';
 
 interface Type {
-    place: any;
+    place: [] | any;
     selected: any;
     refProp: any;
 }
@@ -48,7 +48,7 @@ const PlaceDetails = ({ place, selected, refProp }:Type) => {
               <Typography variant="subtitle2" color="textSecondary">{award.display_name}</Typography>
             </Box>
           ))}
-          {place?.cuisine?.map(({ name } : {name:any}) => (
+          {place?.cuisine?.map(({ name } : {name:string}) => (
             <Chip key={name} size="small" label={name} className={classes.chip} />
           ))}
           {place.address && (

@@ -1,8 +1,9 @@
 import { authJwt } from "../middleware/authJwt";
-import {controller} from "../controllers/user.controller";
+import { controller } from "../controllers/user.controller";
+import { NextFunction, Request, Response } from "express";
 
-module.exports = function(app: any) {
-  app.use(function(req: any, res: any, next: any) {
+module.exports = function(app: any):void {
+  app.use(function(req: Request, res: Response, next: NextFunction) {
     res.header(
       "Access-Control-Allow-Headers",
       "x-access-token, Origin, Content-Type, Accept"

@@ -5,19 +5,19 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from './style.js';
 
 interface Type {
-    places?: [];
+    places: [];
     type: string;
-    setType: any;
+    setType: string | any;
     rating: number | string;
-    setRating: any;
-    childClicked: number;
-    isLoading: any;
+    setRating: string | any;
+    childClicked: string | null;
+    isLoading: boolean;
 }
 
 const List = ({ places, type, setType, rating, setRating, childClicked, isLoading }:Type) => {
 
     const classes = useStyles();
-    const [elRefs, setElRefs] = useState([]);
+    const [elRefs, setElRefs] = useState<never[]>([]);
 
     useEffect(() => {
         const refs = Array(places?.length).fill(null).map((_, i) => elRefs[i] || createRef());

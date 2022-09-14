@@ -1,11 +1,12 @@
-import {config }from "../config/auth.config";
+import { Request, Response } from "express";
+import { config } from "../config/auth.config";
 import { Role } from "../models/role.model";
 import { User } from "../models/user.model";
 
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
-const signup = (req: any, res: any) => {
+const signup = (req: Request, res: Response) => {
   const user = new User({
     username: req.body.username,
     email: req.body.email,
@@ -21,7 +22,7 @@ const signup = (req: any, res: any) => {
         {
           name: { $in: req.body.roles }
         },
-        (err: any, roles: any) => {
+        (err: any, roles: []) => {
           if (err) {
             res.status(500).send({ message: err });
             return;
@@ -54,7 +55,7 @@ const signup = (req: any, res: any) => {
     }
   });
 };
- const signin = (req: any, res: any) => {
+ const signin = (req: Request, res: Response) => {
   User.findOne({
     username: req.body.username
   })
@@ -82,6 +83,7 @@ const signup = (req: any, res: any) => {
       });
       var authorities = [];
       for (let i = 0; i < user.roles.length; i++) {
+          // @ts-ignore
         authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
       }
       res.status(200).send({
