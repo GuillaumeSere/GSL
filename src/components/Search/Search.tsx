@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import useStyles from './style.js';
 
-const Search = ({ setCoordinates }:any) => {
+const Search = ({ setCoordinates }:number | any) => {
 
     const classes = useStyles();
     const [autocomplete, setAutcomplete] = useState<any>(null);
@@ -21,19 +21,19 @@ const Search = ({ setCoordinates }:any) => {
 
     return (
       
-                <Box display="inline-flex">
-                <Typography variant="h6" className={classes.title}>
-                    Recherche Villes
-                </Typography>
-                <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase placeholder='Recherche...' classes={{ root: classes.inputRoot, input: classes.inputInput }} />
-                    </div>
-                 </Autocomplete>
-                </Box>
+        <Box display="inline-flex">
+        <Typography variant="h6" className={classes.title}>
+            Recherche Villes
+        </Typography>
+        <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+            <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                    <SearchIcon />
+                </div>
+                <InputBase placeholder='Recherche...' classes={{ root: classes.inputRoot, input: classes.inputInput }} />
+            </div>
+            </Autocomplete>
+        </Box>
     );
 }
 

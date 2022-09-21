@@ -78,6 +78,7 @@ var signin = function (req, res) {
         });
         var authorities = [];
         for (var i = 0; i < user.roles.length; i++) {
+            // @ts-ignore
             authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
         }
         res.status(200).send({

@@ -9,11 +9,13 @@ var auth_config_1 = require("../config/auth.config");
 var models_1 = require("../models");
 var User = models_1.db.user;
 var Role = models_1.db.role;
+;
 var verifyToken = function (req, res, next) {
     var token = req.headers["x-access-token"];
     if (!token) {
         return res.status(403).send({ message: "No token provided!" });
     }
+    // @ts-ignore
     jsonwebtoken_1.default.verify(token, auth_config_1.config.secret, function (err, decoded) {
         if (err) {
             return res.status(401).send({ message: "Unauthorized!" });

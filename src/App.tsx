@@ -46,24 +46,10 @@ const App: React.FC = () => {
           GSL
         </Link>
         <div className="navbar-nav mr-auto">
-          {showModeratorBoard && (
-            <li className="nav-item">
-              <Link to={"/mod"} className="nav-link">
-                Moderator Board
-              </Link>
-            </li>
-          )}
           {showAdminBoard && (
             <li className="nav-item">
               <Link to={"/admin"} className="nav-link">
                 Admin Board
-              </Link>
-            </li>
-          )}
-          {currentUser && (
-            <li className="nav-item">
-              <Link to={"/user"} className="nav-link">
-                User
               </Link>
             </li>
           )}

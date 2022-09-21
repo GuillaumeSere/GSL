@@ -5,9 +5,10 @@ import List from '../List/List';
 import Map from '../Map/Map';
 import Search from '../Search/Search';
 
+
 const Home: React.FC = () => {
 
-    const [places, setPlaces] = useState<any>([]);
+    const [places, setPlaces] = useState<string[]>([]);
     const [filteredPlaces, setFilteredPlaces] = useState<string[]>([]);
 
     const [childClicked, setChildClicked] = useState<string | null>(null);

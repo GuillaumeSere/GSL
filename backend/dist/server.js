@@ -5,7 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var cors_1 = __importDefault(require("cors"));
+var dotenv_1 = __importDefault(require("dotenv"));
 var models_1 = require("./models");
+dotenv_1.default.config();
 var router = (0, express_1.default)();
 var corsOptions = {
     origin: "http://localhost:3000"
@@ -17,7 +19,7 @@ router.use(express_1.default.json());
 router.use(express_1.default.urlencoded({ extended: true }));
 var Role = models_1.db.role;
 models_1.db.mongoose
-    .connect("mongodb+srv://guillaume:dUFRnbVH6zork4p0@cluster0.zuyedcf.mongodb.net/?retryWrites=true&w=majority", {})
+    .connect(process.env.MONGO_URL, {})
     .then(function () {
     console.log("Successfully connect to MongoDB.");
     initial();
@@ -33,6 +35,7 @@ router.get("/", function (req, res) {
 // routes
 require("./routes/auth.route")(router);
 require("./routes/user.route")(router);
+require("./routes/pins.route")(router);
 // set port, listen for requests
 var PORT = process.env.PORT || 8080;
 router.listen(PORT, function () {

@@ -6,7 +6,7 @@ const Profile: React.FC = () => {
   const currentUser = getCurrentUser();
   return (
     <>
-      <header className="jumbotron user-card">
+      <header>
         <h3>
         Bienvenue <strong>{currentUser.username}</strong> 
         </h3>

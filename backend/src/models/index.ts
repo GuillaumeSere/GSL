@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { User } from './user.model';
 import { Role } from './role.model';
+import { Pin } from './pin.model';
 
 mongoose.Promise = global.Promise;
 
@@ -8,6 +9,7 @@ mongoose.Promise = global.Promise;
     mongoose: mongoose,
     user: User,
     role: Role,
+    pin: Pin,
     ROLES: ["user", "admin", "moderator"]
  };
 

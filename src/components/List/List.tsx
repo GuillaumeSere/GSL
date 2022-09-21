@@ -5,7 +5,7 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from './style.js';
 
 interface Type {
-    places: [];
+    places?: string[];
     type: string;
     setType: string | any;
     rating: number | string;

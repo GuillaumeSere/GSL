@@ -1,7 +1,9 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 import { db } from "./models";
 
+dotenv.config();
 const router = express();
 
 var corsOptions = {
@@ -20,7 +22,7 @@ const Role = db.role;
 
 db.mongoose
   .connect(process.env.MONGO_URL as string, {
-  
+    
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
@@ -39,6 +41,7 @@ router.get("/", (req, res) => {
 // routes
 require("./routes/auth.route")(router);
 require("./routes/user.route")(router);
+require("./routes/pins.route")(router);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
