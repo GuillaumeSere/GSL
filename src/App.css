@@ -1,91 +1,106 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-.navbar{
+
+.navbar {
     background: black;
     font-size: 20px;
 }
-.navbar-brand{
+
+.navbar-brand {
     font-size: 30px;
 }
+
 label {
     display: block;
     margin-top: 10px;
-  }
-  .label {
+}
+
+.label {
     width: max-content;
     color: tomato;
     font-size: 13px;
     border-bottom: 0.5px solid tomato;
     margin: 3px 0;
-  }
-  .desc {
+}
+
+.desc {
     font-size: 14px;
-  }
-  
-  .star {
+}
+
+.star {
     color: gold;
-  }
-  
-  .username {
+}
+
+.username {
     font-size: 14px;
-  }
-  
-  .date {
+}
+
+.date {
     font-size: 12px;
-  }
-  form {
+}
+
+form {
     width: 250px;
     height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: rgb(88, 87, 87);
-  }
-  input {
+}
+
+input {
     border: none;
     border-bottom: 1px solid gray;
-  }
-  
-  input::placeholder,
-  textarea::placeholder {
+}
+
+input::placeholder,
+textarea::placeholder {
     font-size: 12px;
     color: rgb(185, 184, 184);
-  }
-  
-  input:focus,
-  textarea:focus,
-  select:focus {
+}
+
+input:focus,
+textarea:focus,
+select:focus {
     outline: none;
-  }
-  .submitButton {
+}
+
+.submitButton {
     border: none;
     padding: 5px;
     border-radius: 5px;
     color: white;
     background-color: tomato;
     cursor: pointer;
-  }
-  textarea {
+    margin-top: 10px;
+}
+
+textarea {
     border: none;
     border-bottom: 1px solid gray;
-  }
-  ::-webkit-scrollbar{
+}
+
+::-webkit-scrollbar {
     width: 6px;
 }
-::-webkit-scrollbar-track{
+
+::-webkit-scrollbar-track {
     background: black;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
     background: white;
     border-radius: 15px;
 }
-  .card-container.card {
+
+.card-container.card {
     max-width: 350px !important;
-    padding: 40px 40px;
-  }
-  .card {
+    padding: 80px 40px;
+}
+
+.card {
     background-color: #f7f7f7;
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
@@ -96,15 +111,17 @@ label {
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  }
-  .card-marker {
+}
+
+.card-marker {
     width: 250px;
     height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-  }
-  .profile-img-card {
+}
+
+.profile-img-card {
     width: 96px;
     height: 96px;
     margin: 0 auto 10px;
@@ -112,47 +129,57 @@ label {
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-  }
-  .content{
+}
+
+.content {
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: center;
-  }
-  .content-text{
+}
+
+.content-text {
     animation: animate-rotate 5s infinite linear;
-  }
-  @keyframes animate-rotate {
-    0%{
-        transform:rotate(-25deg);
+}
+
+@keyframes animate-rotate {
+    0% {
+        transform: rotate(-25deg);
     }
-    25%{
-        transform:rotate(15deg);
+
+    25% {
+        transform: rotate(15deg);
     }
-    50%{
-        transform:rotate(20deg);
+
+    50% {
+        transform: rotate(20deg);
     }
-    75%{
-        transform:rotate(-15deg);
+
+    75% {
+        transform: rotate(-15deg);
     }
-    100%{
+
+    100% {
         transform: rotate(-25deg);
     }
 }
-  .content-text h2{
+
+.content-text h2 {
     color: #adb5bd;
     position: absolute;
     margin-left: 125px;
     margin-top: 430px;
     font-size: 20px;
     text-align: center;
-  }
-  .background{
+}
+
+.background {
     display: flex;
     height: 700px;
     z-index: 1;
-  }
-  .card-bg{
+}
+
+.card-bg {
     background-image: url(../src/images/card.png);
     background-position: center;
     background-size: cover;
@@ -161,44 +188,50 @@ label {
     z-index: -1;
     width: 100%;
     height: 100%;
-  }
-  body{
+}
+
+body {
     margin: 0 auto;
     box-sizing: border-box;
     padding: 0;
-    background: linear-gradient(180deg,#adb5bd ,rgb(0, 136, 255)) no-repeat;
+    background: linear-gradient(180deg, #adb5bd, rgb(0, 136, 255)) no-repeat;
     background-attachment: fixed;
     height: 100vh;
-  }
-  .makeStyles-list-6{
+}
+
+.makeStyles-list-6 {
     height: 66vh;
-  }
-  .container{
+}
+
+.container {
     max-width: 1535px;
-  }
-header{
+    padding-bottom: 50px;
+}
+
+header {
     text-align: center;
 }
-  .admin-card{
-    background: rgb(185, 215, 240);
-    border: 2px solid black;
+
+.admin-card {
+    background: transparent;
     max-height: 80px;
     text-align: center;
-  }
+}
 
-  /* media query */
-  @media (max-width: 789px){
+/* media query */
+@media (max-width: 789px) {
 
-    .background{
+    .background {
         height: 450px;
-      }
-      .content-text h2{
+    }
+
+    .content-text h2 {
         margin-left: 62px;
         margin-top: 266px;
         font-size: 16px;
-      }
-      .navbar{
+    }
+
+    .navbar {
         font-size: 16px;
-      }
-  }
-  
+    }
+}

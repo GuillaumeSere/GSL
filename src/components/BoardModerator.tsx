@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { getUserBoard } from "../services/user.service";
+import { getModeratorBoard } from "../services/user.service";
 
 const BoardModerator: React.FC = () => {
 
   const [content, setContent] = useState<string>("");
   
   useEffect(() => {
-    getUserBoard().then(
+    getModeratorBoard().then(
       (response) => {
         setContent(response.data);
       },

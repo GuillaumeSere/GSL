@@ -90,7 +90,7 @@ const App: React.FC = () => {
           <Route exact path="/profile" component={Profile} />
           <Route path="/user" component={BoardUser} />
           <Route path="/mod" component={BoardModerator} />
-          <Route path="/admin" component={BoardAdmin} />
+          <Route exact path="/admin" component={BoardAdmin} />
         </Switch>
       </div>
     </div>

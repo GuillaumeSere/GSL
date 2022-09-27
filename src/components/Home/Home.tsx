@@ -28,14 +28,13 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         const filtered = places.filter((place: string | any) => Number(place.rating) > rating);
-
         setFilteredPlaces(filtered);
     }, [rating]);
 
     useEffect(() => {
         if(bounds.sw && bounds.ne) {
         setIsLoading(true);
-
+        
         getPlacesData(type, bounds.sw, bounds.ne)
         .then((data) => {
             setPlaces(data.filter((place: string | any) => place.name && place.num_reviews > 0));
