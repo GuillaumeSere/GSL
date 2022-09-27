@@ -13,6 +13,7 @@ GSL (application de géolocalisation de restaurants avec système d'inscription,
 ![20220923125806](https://user-images.githubusercontent.com/75996200/192046374-5c3c9f8f-6743-4b22-9264-60c12a6d491d.png)
 
 
+# Partie admin pour ajouter des emplacements
 
 ![20220927165732](https://user-images.githubusercontent.com/75996200/192561891-42cdd3d7-0653-49bb-8796-e613033ba863.png)
 
