@@ -5,7 +5,6 @@ import Rating from '@material-ui/lab/Rating';
 
 import mapStyles from './mapStyles';
 import useStyles from './style';
-import Marker from '../Marker/Marker';
 
 interface Type {
     places?: string[];
@@ -57,11 +56,6 @@ const Map = ({ setCoordinates, places, setBounds, coordinates, setChildClicked }
               )}
           </div>
         ))}
-         <Marker 
-            lat={48.955413} 
-            lng={2.337844} 
-            text={"text"} 
-          />
       </GoogleMapReact>
     </div>
     

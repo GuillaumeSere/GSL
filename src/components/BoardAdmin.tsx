@@ -11,7 +11,7 @@ const API_URL = 'http://localhost:8080/api/test';
 const BoardAdmin: React.FC = () => {
 
   const [content, setContent] = useState<string>("");
-  const [pins, setPins] = useState<any>([]);
+  const [pins, setPins] = useState<string[]>([]);
   const myStorage = window.localStorage;
   const [currentUsername, setCurrentUsername] = useState(myStorage.getItem("user"));
   const [currentPlaceId, setCurrentPlaceId] = useState<any>(null);
@@ -132,19 +132,19 @@ const BoardAdmin: React.FC = () => {
                 onClose={() => setCurrentPlaceId(null)}
                 anchor="left"
               >
-                <div className="card">
-                  <label>Place</label>
+                <div className="cards">
+                  <label>Titre</label>
                   <h4 className="place">{p.title}</h4>
-                  <label>Review</label>
+                  <label>Description</label>
                   <p className="desc">{p.desc}</p>
-                  <label>Rating</label>
+                  <label>Note</label>
                   <div className="stars">
                     {Array(p.rating).fill(<Star className="star" />)}
                   </div>
                   <label>Information</label>
                   <span className="username">
-                    Created by <b>{p.username}</b>
-                  </span>
+                    Crée par <b>{p.username}</b>
+                  </span><br/>
                   <span className="date">{format(p.createdAt)}</span>
                 </div>
               </Popup>
@@ -178,7 +178,7 @@ const BoardAdmin: React.FC = () => {
             >
               <div>
                 <form onSubmit={handleSubmit}>
-                  <label>Title</label>
+                  <label>Titre</label>
                   <input
                     placeholder="Entrer votre titre"
                     autoFocus
@@ -189,7 +189,7 @@ const BoardAdmin: React.FC = () => {
                     placeholder="Description du markeur"
                     onChange={(e) => setDesc(e.target.value)}
                   />
-                  <label>Rating</label>
+                  <label>Note</label>
                   <select onChange={(e) => setStar(e.target.value)}>
                     <option value="1">1</option>
                     <option value="2">2</option>
