@@ -121,6 +121,15 @@ textarea {
     display: contents;
 }
 
+.MuiBox-root-7{
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.MuiBox-root-7 h6{
+    margin-left: 2rem;
+}
+
 .mapboxgl-popup-close-button{
     font-size: 22px;
     margin-right: 10px;
@@ -215,7 +224,7 @@ body {
     margin: 0 auto;
     box-sizing: border-box;
     padding: 0;
-    background: linear-gradient(180deg, #adb5bd, rgb(0, 136, 255)) no-repeat;
+    background: rgb(172, 172, 172);
     background-attachment: fixed;
     height: 100vh;
 }
