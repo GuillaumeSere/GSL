@@ -11,6 +11,10 @@
 .navbar-brand {
     font-size: 30px;
 }
+h3{
+    font-size: 30px;
+    font-weight: 500;
+}
 
 label {
     display: block;
@@ -221,7 +225,7 @@ body {
 }
 
 .container {
-    max-width: 1535px;
+    max-width: 100%;
     padding-bottom: 50px;
 }
 

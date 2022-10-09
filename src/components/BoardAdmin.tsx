@@ -20,9 +20,9 @@ const BoardAdmin: React.FC = () => {
   const [desc, setDesc] = useState<any>(null);
   const [star, setStar] = useState<any>(0);
   const [viewport, setViewport] = useState<any>({
-    latitude: 47.040182,
-    longitude: 17.071727,
-    zoom: 4,
+    latitude: 49.4295387,
+    longitude: 2.0807123,
+    zoom: 6,
   });
   
   useEffect(() => {
